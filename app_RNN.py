@@ -26,8 +26,8 @@ filename = 'modelo-class-RNN.pkl'
 modelNN,labelencoder,variables, min_max_scaler= pickle.load(open(filename, 'rb'))
 
 #Cargamos los datos futuros
-data = pd.read_csv("Hipertension_Arterial_Mexico_futuros.csv")
-data.head()
+#data = pd.read_csv("Hipertension_Arterial_Mexico_futuros.csv")
+#data.head()
 
 #Se crea interfaz gráfica con streamlit para captura de los datos
 
