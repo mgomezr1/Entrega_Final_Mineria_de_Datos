@@ -71,7 +71,7 @@ data_preparada=data.copy()
 from sklearn.preprocessing import MinMaxScaler
 
 min_max_scaler = MinMaxScaler()
-variables_a_normalizar = data.select_dtypes(include=['float64', 'int64']).columns  # variables numéricas
+variables_a_normalizar = data_preparada.select_dtypes(include=['float64', 'int64']).columns  # variables numéricas
 min_max_scaler.fit(data[variables_a_normalizar])  # Ajuste de parámetro
 data_preparada[variables_a_normalizar] = min_max_scaler.transform(data[variables_a_normalizar])
 data_preparada.head()
