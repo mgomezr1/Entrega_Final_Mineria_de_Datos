@@ -19,7 +19,7 @@ Original file is located at
 import pandas as pd               # manipulacion dataframes
 import numpy as np                # matrices y vectores
 import matplotlib.pyplot as plt   # gráfica
-!pip install catboost
+from catboost import CatBoostClassifier
 
 #Cargamos el modelo
 import pickle
