@@ -26,8 +26,8 @@ filename = 'modelo-class-RNN.pkl'
 modelNN,labelencoder,variables, min_max_scaler= pickle.load(open(filename, 'rb'))
 
 #Cargamos los datos futuros
-#data = pd.read_csv("Hipertension_Arterial_Mexico_futuros.csv")
-#data.head()
+data = pd.read_csv("Hipertension_Arterial_Mexico_futuros.csv")
+data.head()
 
 #Se crea interfaz gráfica con streamlit para captura de los datos
 
@@ -77,7 +77,7 @@ data_preparada[variables_a_normalizar] = min_max_scaler.transform(data[variables
 data_preparada.head()
 
 #Hacemos la predicción con el modelo
-Y_fut = modelo.predict(data_preparada)
+Y_fut = modelNN.predict(data_preparada)
 print(Y_fut)
 data['Predicción']=labelencoder.inverse_transform(Y_fut)
 data.head()
