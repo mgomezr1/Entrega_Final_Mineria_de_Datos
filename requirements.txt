@@ -1,21 +1,5 @@
-Librerías de Python
 pandas  
 numpy  
 matplotlib.pyplot  
-pickle  
-streamlit
 
 
-
-Explicación del script app_RNN.py
-
-El archivo app_RNN.py constituye el núcleo funcional del despliegue del modelo predictivo. En este script se integran las librerías necesarias para la ejecución, la carga del modelo entrenado y la construcción de una interfaz interactiva con el usuario mediante la librería Streamlit.
-
-En la primera parte del código se importan las librerías de manejo y visualización de datos (pandas, numpy, matplotlib), así como pickle, que permite recuperar el modelo previamente entrenado y guardado en el archivo modelo-class-RNN.pkl. Este modelo, basado en una Red Neuronal Artificial, fue ajustado con las variables más significativas en la predicción del riesgo de hipertensión arterial.
-
-Posteriormente, el código crea una interfaz gráfica interactiva en la que el usuario puede ingresar valores personalizados de las variables clínicas y antropométricas, tales como edad, concentración de hemoglobina, colesterol LDL, glucosa, insulina, triglicéridos, vitaminas B12 y D, estatura, distancia rodilla-talón, circunferencia de la pantorrilla, tensión arterial y nivel de actividad total. Estas entradas se capturan a través de controles tipo slider, lo que permite un manejo intuitivo y visual de los datos.
-
-El script organiza estas entradas en un DataFrame con la misma estructura utilizada durante el entrenamiento, aplicando posteriormente el mismo proceso de normalización MinMaxScaler para mantener la coherencia entre las fases de aprendizaje y despliegue.
-Una vez los datos son escalados, el modelo realiza la predicción mediante el método .predict(), entregando una clasificación binaria que indica el nivel de riesgo (Bajo o Alto). Finalmente, el resultado se muestra directamente en la interfaz, acompañado de las métricas de desempeño del modelo: exactitud (0.83), precisión (0.83), recall (0.82) y área ROC (0.89), reflejando un rendimiento sólido y consistente con la evaluación realizada durante la fase de modelamiento.
-
-En conjunto, este archivo garantiza la integración completa del modelo predictivo en un entorno de interacción real, permitiendo tanto la demostración del desempeño del algoritmo como su utilización práctica en la estimación de riesgo de hipertensión de nuevos individuos.
