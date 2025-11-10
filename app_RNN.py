@@ -26,8 +26,8 @@ filename = 'modelo-class-RNN.pkl'
 modelNN,labelencoder,variables, min_max_scaler= pickle.load(open(filename, 'rb'))
 
 #Cargamos los datos futuros
-#data = pd.read_csv("Hipertension_Arterial_Mexico_futuros.csv")
-#data.head()
+data = pd.read_csv("Hipertension_Arterial_Mexico_futuros.csv")
+data.head()
 
 #Se crea interfaz gráfica con streamlit para captura de los datos
 
@@ -67,13 +67,7 @@ data = pd.DataFrame(datos, columns=[
 #Se realiza la preparación debe ser igual al aprendizaje
 data_preparada=data.copy()
 
-#Normalización de variables numericas
-from sklearn.preprocessing import MinMaxScaler
-
-min_max_scaler = MinMaxScaler()
-variables_a_normalizar = data_preparada.select_dtypes(include=['float64', 'int64']).columns  # variables numéricas
-min_max_scaler.fit(data[variables_a_normalizar])  # Ajuste de parámetro
-data_preparada[variables_a_normalizar] = min_max_scaler.transform(data[variables_a_normalizar])
+data_preparada[["edad", "concentracion_hemoglobina", "valor_colesterol_ldl", "resultado_glucosa", "valor_insulina", "valor_trigliceridos", "valor_folato", "valor_homocisteina", "valor_vitamina_bdoce", "valor_vitamina_d", "estatura", "distancia_rodilla_talon", "circunferencia_de_la_pantorrilla", "tension_arterial", "actividad_total"]]= min_max_scaler.transform(data_preparada[["edad", "concentracion_hemoglobina", "valor_colesterol_ldl", "resultado_glucosa", "valor_insulina", "valor_trigliceridos", "valor_folato", "valor_homocisteina", "valor_vitamina_bdoce", "valor_vitamina_d", "estatura", "distancia_rodilla_talon", "circunferencia_de_la_pantorrilla", "tension_arterial", "actividad_total"]])
 data_preparada.head()
 
 #Hacemos la predicción con el modelo
